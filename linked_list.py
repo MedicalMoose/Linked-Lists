@@ -13,7 +13,7 @@ class LinkedList:
         while temp_node is not None:
             result += str(temp_node.value)
             if temp_node.next is not None:
-                result += ' -> '
+                result += ' -> '  # Done for aesthetics only
             temp_node = temp_node.next
         return result
 
@@ -32,16 +32,16 @@ class LinkedList:
         new_node = Node(value)
         if self.tail is None:
             self.tail = new_node
-        new_node.next = self.head
+        new_node.next = self.head  # Outside the if statement because we'll always do it
         self.head = new_node
         self.length += 1
 
 
 new_linked_list = LinkedList()
-for i in range(10, 21):
+for i in range(10, 31, 10):  # To classmates: third number controls 'step size'
     new_linked_list.append(i)
-new_linked_list.append(21)
-new_linked_list.prepend(9)
+new_linked_list.append(40)
+new_linked_list.prepend(50)
 
 print(new_linked_list.head.value)
 print(new_linked_list.length)
