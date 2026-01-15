@@ -1,4 +1,5 @@
 class Carriage:
+    # To the students that don't understand decorators: please do
     def __init__(self, number):
         self._number = number
         self._next = None

@@ -16,6 +16,8 @@ def run_tests():
     
     assert t.show() == "0 -> 1 -> 2 -> 3 -> 4 -> None"
     
+    print(t)  # Not part of assignment, debug only
+    print(t.show())  # Not part of assignment, debug only
     print("All tests passed!")
 
 run_tests()

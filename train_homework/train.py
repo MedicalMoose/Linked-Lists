@@ -14,15 +14,29 @@ class Train:
         for car in cars:
             self.add_end(car)
             
+
+    '''
+    Mila asked, so I'll explain here:
+    __str__ is basically just a getter that accesses the class as a string
+    '''
     def __str__(self):
         temp_carriage = self._head
         result = ''
         while temp_carriage is not None:
             result += str(temp_carriage)
+            '''
+            Aru asked:
+            Yes - we can do if statements in one line
+            {command if true} if {condition} else {command if false}
+            '''
             result += ", " if temp_carriage.next is not None else ""
             temp_carriage = temp_carriage.next
         return result
 
+    '''
+    Not a fan of how this was structured, but :P
+    Show is basically just acting like a secondary __str__
+    '''
     def show(self):
         temp_carriage = self._head
         result = ''
@@ -40,10 +54,12 @@ class Train:
         new_carriage = Carriage(number)
         if self._tail is None:
             self._tail = new_carriage
+        # Gets done anyway, no need for else 
         new_carriage.next = self._head
         self._head = new_carriage
         self._length += 1
 
+    # How I WOULD do it
     def add_end_o1(self, number):
         new_carriage = Carriage(number)
         if self._head is None:
@@ -53,8 +69,9 @@ class Train:
         self._tail = new_carriage
         self._length += 1
 
+    # How we HAD to do it, hated this method
     def add_end(self, number):
-        # This method is why I'm not uploading this to Github
+        # I hate that this method is now on my Github
         current_node = self._head
         while current_node.next is not None:
             current_node = current_node.next
