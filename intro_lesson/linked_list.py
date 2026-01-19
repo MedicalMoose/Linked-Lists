@@ -39,7 +39,7 @@ class LinkedList:
         temp_node = self._head
 
         # Prevents inserting at an index we can't access
-        if (index >= self._length):
+        if index >= self._length:
             print("Index out of range")
             return
         
