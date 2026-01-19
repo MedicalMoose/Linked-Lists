@@ -23,6 +23,7 @@ print(new_linked_list.head.value)
 print(new_linked_list.length)
 print(new_linked_list)
 
+
 # Tests
 def run_tests():
     l_l = LinkedList()
@@ -32,14 +33,15 @@ def run_tests():
     l_l.append(20)
     l_l.prepend(10)
     l_l.prepend(0)
-    
+
     assert str(l_l) == "0 -> 10 -> 20"
-    
+
     l_l.append(30)
     l_l.insert(4, 40)
-    
+
     assert str(l_l) == "0 -> 10 -> 20 -> 30 -> 40"
-    
+
     print("All tests passed!")
 
-run_tests()
+if __name__ == "__main__":
+    run_tests()

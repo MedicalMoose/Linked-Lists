@@ -35,23 +35,23 @@ class LinkedList:
         self._length += 1
 
     def insert(self, index, value):
-        new_node = Node(value)
         temp_node = self._head
 
         # Prevents inserting at an index we can't access
         if index > self._length:
             print("Index out of range")
             return
-        
+
         # If inserting at the head position: prepend
-        if index == 0:
+        elif index == 0:
             return self.prepend(value)
-        
+
         # If inserting at the tail position: append
         elif index == self._length:
             return self.append(value)
-        
+
         # If insering in the middle: traverse then insert at index
+        new_node = Node(value)
         for i in range(index - 1):
             temp_node = temp_node.next
         new_node.next = temp_node.next
@@ -61,11 +61,11 @@ class LinkedList:
     @property
     def head(self):
         return self._head
-    
+
     @property
     def tail(self):
         return self._tail
-    
+
     @property
     def length(self):
         return self._length
