@@ -10,7 +10,7 @@ class LinkedList:
 
     def __str__(self):
         temp_node = self._head
-        result = ''
+        result = ""
         while temp_node is not None:
             result += str(temp_node.value)
             result += " -> " if temp_node.next is not None else ""
@@ -39,7 +39,7 @@ class LinkedList:
         temp_node = self._head
 
         # Prevents inserting at an index we can't access
-        if index >= self._length:
+        if index > self._length:
             print("Index out of range")
             return
         
@@ -51,7 +51,7 @@ class LinkedList:
         elif index == self._length:
             return self.append(value)
         
-        # If insering in the middle: travese then insert at index
+        # If insering in the middle: traverse then insert at index
         for i in range(index - 1):
             temp_node = temp_node.next
         new_node.next = temp_node.next

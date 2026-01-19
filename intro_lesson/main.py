@@ -18,7 +18,28 @@ new_linked_list.insert(0, 80)
 new_linked_list.insert(8, 90)
 new_linked_list.insert(27, 100)
 
-# Debug
+# Printing different values
 print(new_linked_list.head.value)
 print(new_linked_list.length)
 print(new_linked_list)
+
+# Tests
+def run_tests():
+    l_l = LinkedList()
+
+    assert str(l_l) == ""
+
+    l_l.append(20)
+    l_l.prepend(10)
+    l_l.prepend(0)
+    
+    assert str(l_l) == "0 -> 10 -> 20"
+    
+    l_l.append(30)
+    l_l.insert(4, 40)
+    
+    assert str(l_l) == "0 -> 10 -> 20 -> 30 -> 40"
+    
+    print("All tests passed!")
+
+run_tests()
