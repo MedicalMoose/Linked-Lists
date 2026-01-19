@@ -20,4 +20,6 @@ def run_tests():
     print(t.show())  # Not part of assignment, debug only
     print("All tests passed!")
 
+t = Train()
+print(t)
 run_tests()
