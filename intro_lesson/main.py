@@ -4,6 +4,7 @@ from linked_list import LinkedList
 new_node = Node(10)
 print(new_node)
 
+empty_linked_list = LinkedList()
 new_linked_list = LinkedList()
 for i in range(10, 31, 10):  # To classmates: third number controls 'step size'
     new_linked_list.append(i)
@@ -17,11 +18,6 @@ new_linked_list.insert(2, 70)
 new_linked_list.insert(0, 80)
 new_linked_list.insert(8, 90)
 new_linked_list.insert(27, 100)
-
-# Printing different values
-print(new_linked_list.head.value)
-print(new_linked_list.length)
-print(new_linked_list)
 
 
 # Tests
@@ -44,4 +40,13 @@ def run_tests():
     print("All tests passed!")
 
 if __name__ == "__main__":
+    # Printing different values
+    print(new_linked_list.head.value)
+    print(new_linked_list.length)
+    print(new_linked_list)
+    print()
     run_tests()
+    print()
+    new_linked_list.traverse()
+    print()
+    empty_linked_list.traverse()

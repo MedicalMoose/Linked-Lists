@@ -58,6 +58,41 @@ class LinkedList:
         temp_node.next = new_node
         self._length += 1
 
+    def traverse(self):
+        curr_node = self._head
+        for i in range(self._length):
+            print(f"Node: {i + 1}\t\tData: {curr_node.value}")
+            curr_node = curr_node.next
+        print(f"Node: {self._length + 1}\t\tData: None")
+
+    def value_comparison(self, node, target_val, index):
+        if node._value == target_val:
+            print(f"Value found at index {index}")
+            return True
+        return False
+    
+    def search(self, target_val):
+        temp_node = self.head
+        found = False
+        current_index = 0
+        
+        while current_index <= self.length and not found:
+            found = self.value_comparison(temp_node, target_val, current_index)
+            temp_node = temp_node.next
+            current_index += 1
+        
+        if not found:
+            print("Value not found")
+        else:
+            return current_index
+
+
+    def delete(self, target_val):
+        pass
+
+    def delete_list(self):
+        self._head = None
+
     @property
     def head(self):
         return self._head
