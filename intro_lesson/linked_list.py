@@ -39,8 +39,7 @@ class LinkedList:
 
         # Prevents inserting at an index we can't access
         if index > self._length:
-            print("Index out of range")
-            return
+            return "Index out of range"
 
         # If inserting at the head position: prepend
         elif index == 0:
@@ -58,12 +57,14 @@ class LinkedList:
         temp_node.next = new_node
         self._length += 1
 
-    def traverse(self):
+    def traverse(self, distance = None):
+        if distance == None:
+            distance = self._length
+        distance -= 1
         curr_node = self._head
-        for i in range(self._length):
-            print(f"Node: {i + 1}\t\tData: {curr_node.value}")
+        for i in range(distance):
             curr_node = curr_node.next
-        print(f"Node: {self._length + 1}\t\tData: None")
+        return curr_node
 
     def value_comparison(self, node, target_val, index):
         if node._value == target_val:
@@ -82,16 +83,44 @@ class LinkedList:
             current_index += 1
         
         if not found:
-            print("Value not found")
+            return "Value not found"
         else:
             return current_index
 
-
-    def delete(self, target_val):
-        pass
+    def get(self, index):
+        return self.traverse(index).value
 
     def delete_list(self):
         self._head = None
+
+    def pop(self, pop_count = 1):
+        if pop_count > self._length:
+            return "Index out of range"
+        elif pop_count == self._length:
+            return self.delete_list()
+        
+        self.traverse(self._length - pop_count).next = None
+        self._length -= pop_count
+
+    def skip(self, node):
+        node.next = node.next.next
+        if node.next.next == None:
+            self._tail = node
+        self._length -= 1
+
+    def skipper(self, node, target):
+        if type(node.next) == Node and node.next.value == target:
+            self.skip(node)
+
+    def delete(self, target_val):
+        curr_node = self._head
+        while self._head.value == target_val:
+            self._head = self._head.next
+            self._length -= 1
+        for i in range(self._length - 2):
+            self.skipper(curr_node, target_val)
+            curr_node = curr_node.next
+
 
     @property
     def head(self):

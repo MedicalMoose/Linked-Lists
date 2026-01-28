@@ -18,6 +18,8 @@ new_linked_list.insert(2, 70)
 new_linked_list.insert(0, 80)
 new_linked_list.insert(8, 90)
 new_linked_list.insert(27, 100)
+new_linked_list.insert(3, 50)
+new_linked_list.prepend(50)
 
 
 # Tests
@@ -44,6 +46,10 @@ if __name__ == "__main__":
     print(new_linked_list.head.value)
     print(new_linked_list.length)
     print(new_linked_list)
+    new_linked_list.pop(2)
+    new_linked_list.delete(50)
+    print(new_linked_list)
+    print(new_linked_list.length)
     print()
     run_tests()
     print()
